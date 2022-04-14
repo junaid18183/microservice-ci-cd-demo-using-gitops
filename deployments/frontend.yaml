@@ -23,7 +23,7 @@ spec:
               path: default.conf
       containers:
         - name: frontend-app
-          image: ghcr.io/junaid18183/frontend_microservice_react:sha-b65a384
+          image: ghcr.io/junaid18183/frontend_microservice_react:sha-8ab7ad6
           imagePullPolicy: IfNotPresent
           ports:
             - containerPort: 80

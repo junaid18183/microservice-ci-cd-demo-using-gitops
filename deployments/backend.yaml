@@ -55,4 +55,4 @@ spec:
     port: 8800
   selector:
     app: backend-api
-  type: NodePort
+  type: ClusterIP

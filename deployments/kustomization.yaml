@@ -1,0 +1,14 @@
+namespace: default
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+resources:
+- backend.yaml
+- nginx-config-map.yaml
+- frontend.yaml
+images:
+- name: ghcr.io/junaid18183/frontend_microservice_react
+  newName: ghcr.io/junaid18183/frontend_microservice_react
+  newTag: sha-8ab7ad6
+- name: ghcr.io/junaid18183/product_microservice_sample
+  newName: ghcr.io/junaid18183/product_microservice_sample
+  newTag: sha-8ead95a
