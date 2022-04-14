@@ -1,0 +1,6 @@
+[submodule "frontend_microservice_react"]
+	path = frontend_microservice_react
+	url = git@github.com:junaid18183/frontend_microservice_react.git
+[submodule "product_microservice_sample"]
+	path = product_microservice_sample
+	url = git@github.com:junaid18183/product_microservice_sample.git
