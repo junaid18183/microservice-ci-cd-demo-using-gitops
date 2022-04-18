@@ -17,6 +17,15 @@ spec:
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
+  annotations:
+    argocd-image-updater.argoproj.io/image-list: frontend=ghcr.io/junaid18183/frontend_microservice_react,backend=ghcr.io/junaid18183/product_microservice_sample
+    argocd-image-updater.argoproj.io/write-back-method: git:secret:argocd/repo-microservice-ci-cd-demo-using-gitops
+    argocd-image-updater.argoproj.io/git-branch: main
+    argocd-image-updater.argoproj.io/write-back-target: kustomization "kustomization:sample-microservice"
+    argocd-image-updater.argoproj.io/frontend.update-strategy: latest
+    argocd-image-updater.argoproj.io/backend.update-strategy: latest
+    argocd-image-updater.argoproj.io/frontend.kustomize.image-name: ghcr.io/junaid18183/frontend_microservice_react
+    argocd-image-updater.argoproj.io/backend.kustomize.image-name: ghcr.io/junaid18183/product_microservice_sample
   name: sample-microservice
   namespace: argocd
 spec:
