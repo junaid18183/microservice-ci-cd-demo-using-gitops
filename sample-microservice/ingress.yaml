@@ -10,7 +10,7 @@ metadata:
 spec:
   # ingressClassName: traefik
   rules:
-  - host: frontend-app.ijuned.com
+  - host: sampleapp.192.168.0.108.nip.io
     http:
       paths:
       - backend:
