@@ -13,4 +13,4 @@ images:
   newTag: sha-8ab7ad6
 - name: ghcr.io/junaid18183/product_microservice_sample
   newName: ghcr.io/junaid18183/product_microservice_sample
-  newTag: sha-e23b936
+  newTag: sha-d45edba
