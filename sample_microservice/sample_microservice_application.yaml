@@ -1,0 +1,18 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: sample_microservice
+spec:
+  project: managed-apps
+  source:
+    path: sample_microservice
+    repoURL: https://gitlab.com/enbuild-staging/prod-aws-enbuild.git
+    targetRevision: main
+  destination:
+    namespace: sample_microservice
+    server: https://kubernetes.default.svc
+  syncPolicy: 
+    automated: 
+      selfHeal: true
+      prune: true
+      allowEmpty: true

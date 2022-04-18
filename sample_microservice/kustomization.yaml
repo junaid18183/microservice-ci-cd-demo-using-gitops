@@ -5,6 +5,7 @@ resources:
 - backend.yaml
 - nginx-config-map.yaml
 - frontend.yaml
+- ingress.yaml
 images:
 - name: ghcr.io/junaid18183/frontend_microservice_react
   newName: ghcr.io/junaid18183/frontend_microservice_react
