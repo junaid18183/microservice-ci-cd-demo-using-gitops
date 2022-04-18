@@ -1,0 +1,35 @@
+---
+apiVersion: argoproj.io/v1alpha1
+kind: AppProject
+metadata:
+  name: managed-apps
+  namespace: argocd
+spec:
+  clusterResourceWhitelist:
+  - group: '*'
+    kind: '*'
+  destinations:
+  - namespace: '*'
+    server: https://kubernetes.default.svc
+  sourceRepos:
+  - '*'
+---
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: sample-microservice
+  namespace: argocd
+spec:
+  project: managed-apps
+  source:
+    path: sample-microservice
+    repoURL: https://github.com/junaid18183/microservice-ci-cd-demo-using-gitops.git
+    targetRevision: main
+  destination:
+    namespace: sample-microservice
+    server: https://kubernetes.default.svc
+  syncPolicy: 
+    automated: 
+      selfHeal: true
+      prune: true
+      allowEmpty: true
