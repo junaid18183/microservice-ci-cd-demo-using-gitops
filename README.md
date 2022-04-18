@@ -64,10 +64,11 @@ backend-api-76ff5d46-x7bzl      1/1     Running   0          4m35s
 ```
 
 # Test the CI-CD
-You can commit a dummy change either in (FrontEND)[https://github.com/junaid18183/frontend_microservice_react] or (BackEnd)[https://github.com/junaid18183/product_microservice_sample] 
+You can commit a dummy change either in [FrontEND](https://github.com/junaid18183/frontend_microservice_react)
+or [BackEnd](https://github.com/junaid18183/product_microservice_sample)
 
 That change will create a new image and that will be pushed to github image repositiry.
-Once the image is pushed the ArgoCD image updater will get that update, and will update the `sample-microservice/kustomization.yaml` file (like this) [https://github.com/junaid18183/microservice-ci-cd-demo-using-gitops/commit/1930757577540b52cd09bbc7fd69fd68fbd345ad]
+Once the image is pushed the ArgoCD image updater will get that update, and will update the `sample-microservice/kustomization.yaml` file [like this](https://github.com/junaid18183/microservice-ci-cd-demo-using-gitops/commit/1930757577540b52cd09bbc7fd69fd68fbd345ad)
 
 
 # References 
