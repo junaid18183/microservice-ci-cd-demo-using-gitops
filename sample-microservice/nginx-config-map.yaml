@@ -10,6 +10,13 @@ data:
       listen 80 default_server;
       server_name _;
 
+      location / {
+              if (!-e $request_filename){
+                rewrite ^(.*)$ /index.html break;
+              }
+      }
+
+
       location /api/products {
               proxy_set_header Host $host;
               proxy_pass http://backend-api:8800/api/products;
