@@ -25,3 +25,4 @@ yarn-error.log*
 # 
 frontend_microservice_react/
 product_microservice_sample/
+sample-microservice/repocreds.yaml
