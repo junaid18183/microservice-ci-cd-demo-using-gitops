@@ -27,3 +27,13 @@ fZQPYPw493j39ke1
 ```
 
 # Create the ArgoCD Application
+
+We can create the ArgoCD Application using the UI. But for pure GitOps we will create it using the CRD and commit that application.yaml as well into the REPO.
+
+```
+kubectl apply -f sample-microservice/sample_microservice_application.yaml
+appproject.argoproj.io/managed-apps created
+application.argoproj.io/sample-microservice created
+```
+
+Please note since our GitOps repo is public we can directly create the application. Otherwise first we had to create the repository in the UI 
