@@ -1,0 +1,58 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: shipment-api
+  # namespace: default
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: shipment-api
+  template:
+    metadata:
+      labels:
+        app: shipment-api
+    spec:
+      containers:
+        - name: shipment-api
+          image: ghcr.io/junaid18183/shipment_microservice_sample:sha-c4181d4
+          imagePullPolicy: IfNotPresent
+          ports:
+            - containerPort: 8800
+          env:
+            - name: NODE_NAME
+              valueFrom:
+                fieldRef:
+                  fieldPath: spec.nodeName
+            - name: POD_NAME
+              valueFrom:
+                fieldRef:
+                  fieldPath: metadata.name
+            - name: POD_NAMESPACE
+              valueFrom:
+                fieldRef:
+                  fieldPath: metadata.namespace
+            - name: POD_IP
+              valueFrom:
+                fieldRef:
+                  fieldPath: status.podIP  
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+  labels:
+    app: shipment-api
+  name: shipment-api
+  # namespace: default
+spec:
+  ipFamilies:
+  - IPv4
+  ipFamilyPolicy: SingleStack
+  ports:
+  - name: http
+    port: 8801
+  selector:
+    app: shipment-api
+  type: ClusterIP

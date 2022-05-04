@@ -19,7 +19,7 @@ data:
 
       location /api/products {
               proxy_set_header Host $host;
-              proxy_pass http://backend-api:8800/api/products;
+              proxy_pass http://product-api:8800/api/products;
               proxy_pass_header Authorization;
               proxy_set_header X-Real-IP $remote_addr;
               proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
@@ -35,7 +35,7 @@ data:
       
       location /api/shipments {
         proxy_set_header Host $host;
-        proxy_pass http://backend-api:8800/api/shipments;
+        proxy_pass http://shipment-api:8801/api/shipments;
         proxy_pass_header Authorization;
         proxy_set_header X-Real-IP $remote_addr;
         proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
