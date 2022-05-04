@@ -10,15 +10,15 @@
 
 ## Architecutre Diagram 
 
-Will add image here
+![architecure](./architecure.png "architecure")
 
-# GitOPS DEMO
+# Deployment using GitOps
 
 # Install the ArgoCD
 
 you can simply install the ArgoCD using below command
 ```
-    kustomize build deploy_argo_cd | kubectl apply -f -
+    kustomize build argo-cd-deployement | kubectl apply -f -
 ```
 
 
@@ -29,13 +29,13 @@ you can simply install the ArgoCD using below command
 get the ingress URL for the ArgoCD
 ```
 kubectl get ing -n argocd argocd-server
-NAME            CLASS    HOSTS                         ADDRESS         PORTS   AGE
-argocd-server   <none>   argocd.192.168.0.108.nip.io   192.168.0.108   80      20m
+NAME            CLASS    HOSTS               ADDRESS         PORTS   AGE
+argocd-server   <none>   argocd.ijuned.com   192.168.0.107   80      2s
 ```
 
-Make sure to update the ingress created by above and change it with your LoadBalancer IP. Or the real domain instead of `nip.io`
+Make sure to update the ingress created by above kustmization with your required domain. Also in my case I will create a host entry for 
 
-Access the URL argocd.192.168.0.108.nip.io in your Browser.
+Access the URL argocd.192.168.0.108.nip.io in your Browser. ( It  will take some time for all pods to be up and argoCD UI to be functional.)
 
 To get the `admin` password you can use below command
 
