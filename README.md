@@ -123,8 +123,9 @@ replicaset.apps/frontend-app-68fb78f597   1         1         1       10m
 
 NAME                                     CLASS    HOSTS                  ADDRESS         PORTS   AGE
 ingress.networking.k8s.io/frontend-app   <none>   sampleapp.ijuned.com   192.168.0.110   80      10m
-
 ```
+
+![sampleapp-ui](./images/sampleapp-ui.png "sampleapp-ui")
 
 ## Test the CI-CD
 You can commit a dummy change either in [FrontEND](https://github.com/junaid18183/frontend_microservice_react)
