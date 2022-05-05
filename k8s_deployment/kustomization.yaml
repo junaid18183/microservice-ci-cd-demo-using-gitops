@@ -18,4 +18,4 @@ images:
   newTag: sha-078e010
 - name: ghcr.io/junaid18183/shipment_microservice_sample
   newName: ghcr.io/junaid18183/shipment_microservice_sample
-  newTag: sha-09085e8
+  newTag: sha-9351a27
