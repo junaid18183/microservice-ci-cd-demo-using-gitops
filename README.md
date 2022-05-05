@@ -58,7 +58,7 @@ Create the repository
 kubectl apply -f k8s_deployment/repocreds.yaml
 ```
 
-We can create the ArgoCD Application using the UI. But for pure GitOps we will create it using the CRD and commit that application.yaml as well into the REPO.
+We can create the ArgoCD Application using the UI. But for pure GitOps we will create it using the CRD. The application defination is present at `argo-cd-deployement/sample_microservice_application.yaml`
 
 ```
 kubectl apply -f argo-cd-deployement/sample_microservice_application.yaml
