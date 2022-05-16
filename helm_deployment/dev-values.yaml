@@ -1,0 +1,100 @@
+imageCredentials:
+  registry: registry.gitlab.com #https://gitlab.com/groups/enbuild-staging/-/settings/repository
+  username: gitlab+deploy-token-460031
+  password: pq2dwvCSr9sgGXdhYqGX
+
+mongodb:
+  enabled: true
+  mongo_root_username: "enbuild-dev"
+  mongo_root_password: "EDK1lq6eep5YyKYi3wf6AkiyR2oIcxTlzrWQU6iT5anTW66oBTiWwgwn0SYcjEyjHNab6DHSMRiw4l7yaJu1GQ=="
+  mongo_server: "If you are using cosmosDB then set the right cosmosDB endpoint as mongo_server and set the enabled=false"
+  image:
+    repository: registry.gitlab.com/enbuild-staging/container_registry/opensource-mongodb/mongodb
+    tag: 4.4.5
+    pullPolicy: Always
+
+enbuildUi:
+  host: enbuild.ijuned.com
+  navigation_flag: "stack-gitlab,stack-github,stack-app,stack-ci,ml,stack-list,log,request,stack-details,warehouse"
+  image:
+    repository: registry.gitlab.com/enbuild-staging/vivsoft-platform-ui/enbuild-frontend
+    tag: 6a80f5c6d3172b79860f7df1eae8f349c80d51b3
+    pullPolicy: Always
+  ingress: 
+    enabled: true
+    tls: false
+    tls_secret: vivplatform-cert
+    classname: 
+    annotations:
+      cert-manager.io/cluster-issuer: "letsencrypt-prod"
+  istio:
+    enabled: false
+    gateway: istio-system/public-gateway
+  replicas: 1
+  service_type: ClusterIP
+  node_port: 30080
+
+enbuildBk:
+  image:
+    repository: registry.gitlab.com/enbuild-staging/vivsoft-platform-ui/enbuild-backend
+    tag: 6a80f5c6d3172b79860f7df1eae8f349c80d51b3
+    pullPolicy: Always
+  replicas: 1
+  service_type: ClusterIP
+  encryption_key: "vivsoft234546456757$%!"
+
+enbuildMl:
+  image:
+    repository: registry.gitlab.com/enbuild-staging/vivsoft-platform-ui/enbuild-ml
+    tag: 6a80f5c6d3172b79860f7df1eae8f349c80d51b3
+    pullPolicy: Always
+  replicas: 1
+  service_type: ClusterIP
+
+enbuildRequest:
+  image:
+    repository: registry.gitlab.com/enbuild-staging/vivsoft-platform-ui/enbuild-request
+    tag: 6a80f5c6d3172b79860f7df1eae8f349c80d51b3
+    pullPolicy: Always
+  replicas: 1
+  service_type: ClusterIP
+
+enbuildUser:
+  image:
+    repository: registry.gitlab.com/enbuild-staging/vivsoft-platform-ui/enbuild-user
+    tag: 6a80f5c6d3172b79860f7df1eae8f349c80d51b3
+    pullPolicy: Always
+  replicas: 1
+  service_type: ClusterIP
+
+enbuildWarehouse:
+  image:
+    repository: registry.gitlab.com/enbuild-staging/vivsoft-platform-ui/enbuild-warehouse
+    tag: 6a80f5c6d3172b79860f7df1eae8f349c80d51b3
+    pullPolicy: Always
+  replicas: 1
+  service_type: ClusterIP
+
+enbuildSync:
+  image:
+    repository: registry.gitlab.com/enbuild-staging/vivsoft-platform-ui/enbuild-cronjob
+    tag: 6a80f5c6d3172b79860f7df1eae8f349c80d51b3
+    pullPolicy: Always
+  sync_schedule: '*/1 * * * *'
+  keycloack:
+    keycloak_url: https://keycloak.vivplatform.io/auth
+    keycloak_backend_secret: "f4757de6-bac8-4fec-9b43-241e617bafcb"
+  gitlab:
+    token: qmToAsLr2AMmb_1Aq_zB
+    host: https://gitlab.com/
+    gitlab_project_id: "25223192"
+    gitlab_namespace_id: "11359700"
+    gitlab_group: enbuild-staging
+    gitlab_token_name: test
+    gitlab_ref: dev
+  github:
+    token: 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
+    host: https://github.com
+    branch: main
+    github_account: VivSoftOrg
+    github_repo: manifests

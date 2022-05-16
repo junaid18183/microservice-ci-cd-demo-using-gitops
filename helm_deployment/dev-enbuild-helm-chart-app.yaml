@@ -1,0 +1,16 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: enbuild
+  namespace: argocd
+spec:
+  project: default
+  source:
+    chart: enbuild
+    repoURL: https://gitlab.com/api/v4/projects/30816323/packages/helm/stable
+    targetRevision: 0.5.0
+    helm:
+      releaseName: enbuild
+  destination:
+    server: "https://kubernetes.default.svc"
+    namespace: dev-enbuild
