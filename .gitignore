@@ -28,5 +28,6 @@ microservices/frontend_microservice_react/
 microservices/product_microservice_sample/ 
 microservices/shipment_microservice_sample/ 
 argo-cd-deployement/repocreds.yaml
+argo-cd-deployement/helm-repo.yaml
 
 target
